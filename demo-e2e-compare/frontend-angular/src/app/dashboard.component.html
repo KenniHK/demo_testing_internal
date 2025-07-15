@@ -1,0 +1,13 @@
+<h2>Dashboard Data Toko</h2>
+<table>
+  <tr>
+    <th>Nama</th>
+    <th>Kota</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let toko of tokoList">
+    <td>{{ toko.name }}</td>
+    <td>{{ toko.city }}</td>
+    <td>{{ toko.status }}</td>
+  </tr>
+</table>

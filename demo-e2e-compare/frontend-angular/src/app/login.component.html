@@ -1,0 +1,5 @@
+<h2>Login Pengguna</h2>
+<input [(ngModel)]="username" placeholder="Username">
+<input [(ngModel)]="password" type="password" placeholder="Password">
+<button (click)="login()">Login</button>
+<p style="color:red">{{ error }}</p>
