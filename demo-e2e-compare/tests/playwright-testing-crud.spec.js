@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:4200/');
+  await page.getByRole('textbox', { name: 'Username' }).click();
+  await page.getByRole('textbox', { name: 'Username' }).fill('admin');
+  await page.getByRole('textbox', { name: 'Username' }).press('Tab');
+  await page.getByRole('textbox', { name: 'Password' }).fill('12345');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('button', { name: '+ Tambah Toko' }).click();
+  await page.getByRole('textbox').first().click();
+  await page.getByRole('textbox').first().fill('sss');
+  await page.getByText('Tambah TokoNama:Kota:Status:').click();
+  await page.getByRole('textbox').nth(1).click();
+  await page.getByRole('textbox').nth(1).fill('w');
+  await page.getByRole('textbox').nth(1).click();
+  await page.getByRole('textbox').nth(1).fill('wer');
+  await page.getByRole('button', { name: 'Simpan' }).click();
+  await page.getByRole('row', { name: 'sss wer Aktif Edit Hapus' }).getByRole('button').first().click();
+  await page.getByRole('textbox').first().click();
+  await page.getByRole('textbox').first().fill('sssasds');
+  await page.getByRole('textbox').nth(1).click();
+  await page.getByRole('textbox').nth(1).fill('werfdsfs');
+  await page.getByRole('button', { name: 'Simpan' }).click();
+  await page.getByRole('button', { name: '+ Tambah Toko' }).click();
+  await page.getByRole('textbox').first().click();
+  await page.getByRole('textbox').first().fill('111');
+  await page.getByRole('textbox').nth(1).click();
+  await page.getByRole('textbox').nth(1).fill('11');
+  await page.getByText('Tambah TokoNama:Kota:Status:').click();
+  await page.getByRole('button', { name: 'Simpan' }).click();
+});

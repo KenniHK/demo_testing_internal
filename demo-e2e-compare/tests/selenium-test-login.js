@@ -4,7 +4,7 @@ import fs from 'fs';
 
 const driver = await new Builder()
   .forBrowser('chrome')
-  .setChromeOptions(new chrome.Options().addArguments('--headless', '--no-sandbox', '--disable-gpu'))
+  .setChromeOptions(new chrome.Options().addArguments('--headed', '--no-sandbox', '--disable-gpu'))
   .build();
 
 // try {

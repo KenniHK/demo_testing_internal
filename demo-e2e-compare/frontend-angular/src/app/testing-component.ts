@@ -14,6 +14,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     <button (click)="runLoginTest('selenium')" class="bg-blue-500 text-white px-4 py-2 rounded">Login Test (Selenium)</button>
     <button (click)="runLoginTest('playwright')" class="bg-green-500 text-white px-4 py-2 rounded">Login Test (Playwright)</button>
 
+    <!-- <button (click)="runCrudTest('selenium')" class="bg-blue-500 text-white px-4 py-2 rounded">CRUD Test (Selenium)</button>
+    <button (click)="runCrudTest('playwright')" class="bg-green-500 text-white px-4 py-2 rounded">CRUD Test (Playwright)</button> -->
+
     </div>
 
     <div *ngIf="result()" class="border p-4 rounded shadow bg-white">
@@ -54,5 +57,14 @@ export class TestingComponent {
     error: (err) => this.result.set({ tool, log: '❌ Gagal login test', error: err.message, duration: 0 })
   });
 }
+
+
+  runCrudTest(tool: 'selenium' | 'playwright') {
+    this.result.set(null);
+    this.http.get<any>(`http://localhost:3000/run-test-crud?tool=${tool}`).subscribe({
+      next: (res) => this.result.set(res),
+      error: (err) => this.result.set({ tool, log: '❌ Gagal crud test', error: err.message, duration: 0})
+    })
+  }
 
 }

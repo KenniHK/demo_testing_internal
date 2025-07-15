@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 1rem;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.form-box {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+input, select {
+  margin-bottom: 8px;
+  width: 100%;
+}

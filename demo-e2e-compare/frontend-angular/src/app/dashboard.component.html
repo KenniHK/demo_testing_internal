@@ -1,13 +1,45 @@
 <h2>Dashboard Data Toko</h2>
+
+<button (click)="newToko()">+ Tambah Toko</button>
+
 <table>
-  <tr>
-    <th>Nama</th>
-    <th>Kota</th>
-    <th>Status</th>
-  </tr>
-  <tr *ngFor="let toko of tokoList">
-    <td>{{ toko.name }}</td>
-    <td>{{ toko.city }}</td>
-    <td>{{ toko.status }}</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Kota</th>
+      <th>Status</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let toko of tokoService.tokoList()">
+      <td>{{ toko.name }}</td>
+      <td>{{ toko.city }}</td>
+      <td>{{ toko.status }}</td>
+      <td>
+        <button (click)="edit(toko)">Edit</button>
+        <button (click)="delete(toko.id)">Hapus</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+<!-- Form Tambah/Edit -->
+<div *ngIf="selected" class="form-box">
+  <h3>{{ selected.id === 0 ? 'Tambah Toko' : 'Edit Toko' }}</h3>
+
+  <label>Nama:</label>
+  <input [(ngModel)]="selected.name"><br />
+
+  <label>Kota:</label>
+  <input [(ngModel)]="selected.city"><br />
+
+  <label>Status:</label>
+  <select [(ngModel)]="selected.status">
+    <option value="Aktif">Aktif</option>
+    <option value="Tidak Aktif">Tidak Aktif</option>
+  </select><br />
+
+  <button (click)="save()">Simpan</button>
+  <button (click)="cancel()">Batal</button>
+</div>
