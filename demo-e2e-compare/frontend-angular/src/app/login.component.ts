@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @Component({
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule, HttpClientModule, NgIf],
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',

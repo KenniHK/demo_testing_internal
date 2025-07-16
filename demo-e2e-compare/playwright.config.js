@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
-console.log('✅ Condsdsfdffig loaded');
+console.log('✅ Config loaded');
 export default defineConfig({
   use: {
     headless: false,
